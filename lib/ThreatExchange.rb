@@ -5,18 +5,19 @@ require "json"
 require "pry"
 
 module ThreatExchange
-  class Query
-
+  class Base
     def initialize(config={})
       @access_token = config[:access_token]
       @baseurl = 'https://graph.facebook.com'
     end
+  end    
 
+  class Query<Base
     def malware_analyses(filter={})
       filter[:access_token] = @access_token
       begin 
         response = RestClient.get "#{@baseurl}/malware_analyses", 
-          { params: filter } 
+        { params: filter } 
         return JSON.parse(response)
       rescue => e
         e.response
@@ -27,7 +28,7 @@ module ThreatExchange
       filter[:access_token] = @access_token
       begin
         response = RestClient.get "#{@baseurl}/threat_indicators", 
-          { params: filter } 
+        { params: filter } 
         return JSON.parse(response)
         e.response
       end
@@ -37,7 +38,7 @@ module ThreatExchange
       filter[:access_token] = @access_token
       begin 
         response = RestClient.get "#{@baseurl}/", 
-          { params: filter } 
+        { params: filter } 
         return JSON.parse(response)
       rescue => e
         e.response
@@ -55,10 +56,32 @@ module ThreatExchange
       end
     end
 
+    def memebers()
+      begin 
+        response = RestClient.get "#{@baseurl}/threat_exchange_members/", 
+        { params: { access_token: @access_token } }
+        return JSON.parse(response)
+      rescue => e
+        e.response
+      end
+    end
+  end
+
+  class Submission<Base
+    def set_connection(data={})
+      data[:access_token] = @access_token
+      begin
+        response = RestClient.post "#{@baseurl}/",
+        { params: data }
+      rescue => e
+        e.response
+      end
+    end
+
     def new_ioc(data={})
       data[:access_token] = @access_token
       begin
-        response = RestClient.post "",
+        response = RestClient.post "#{@baseurl}/",
         { params: data }
       rescue => e
         e.response
@@ -68,22 +91,13 @@ module ThreatExchange
     def update_ioc(data={})
       data[:access_token] = @access_token
       begin
-        response = RestClient.post "",
+        response = RestClient.post "#{@baseurl}/",
         { params: data }
       rescue => e
         e.response
       end
     end
 
-    def set_connection(data={})
-      data[:access_token] = @access_token
-      begin
-        response = RestClient.post "",
-        { params: data }
-      rescue => e
-        e.response
-      end
-    end
- end
+  end
 end
 binding.pry
