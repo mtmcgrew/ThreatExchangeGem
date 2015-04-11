@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ThreatExchange/lib/version'
+require 'ThreatExchange/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "ThreatExchange"
-  spec.version       = ThreatExchange::Version 
+  spec.version       = ThreatExchange::VERSION
   spec.authors       = ["Maus Stearns"]
   spec.email         = ["maus@fb.com"]
   spec.summary       = %q{Gem abstraction for Facebooks ThreatExchange}

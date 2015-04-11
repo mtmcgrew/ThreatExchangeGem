@@ -24,7 +24,7 @@ submissions. To initialize either class you pass your access token in a hash int
 ```ruby
 
 config = { access_token: 'abc123' }
-TE = ThreatExchange::Query.new(config)
+TE = ThreatExchange::Client.new(config)
 
 ```
 
@@ -56,7 +56,7 @@ TODO: Document / Test Submission
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/ThreatExchange/fork )
+1. Fork it ( https://github.com/maus-/ThreatExchange/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
