@@ -99,7 +99,7 @@ module ThreatExchange
     def update_ioc(data={})
       data[:access_token] = @access_token
       begin
-        response = RestClient.post "#{@baseurl}/#{data[:id]}",
+        response = RestClient.post "#{@baseurl}/#{data[:id]}/",
         { params: data }
       rescue => e
         e.response
