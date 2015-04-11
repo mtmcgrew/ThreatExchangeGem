@@ -23,8 +23,8 @@ submissions. To initialize either class you pass your access token in a hash int
 
 ```ruby
 
-config = { access_token: 'abc123' }
-TE = ThreatExchange::Client.new(config)
+access_token = 'abc123'
+TE = ThreatExchange::Client.new(access_token)
 
 ```
 
