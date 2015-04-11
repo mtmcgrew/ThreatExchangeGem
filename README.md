@@ -46,6 +46,7 @@ result = TE.threat_indicators(query)
 ```
 
 The result will return as a hash and then from there you can manipulate as you like.
+To make life even easier I'd reccomend using the Hashie ruby gem https://github.com/intridea/hashie
 
 Each Query method matches the existing ThreatExchange API and supports the same parameters. 
 

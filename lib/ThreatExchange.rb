@@ -56,7 +56,7 @@ module ThreatExchange
       end
     end
 
-    def memebers()
+    def members()
       begin 
         response = RestClient.get "#{@baseurl}/threat_exchange_members/", 
         { params: { access_token: @access_token } }
@@ -68,7 +68,7 @@ module ThreatExchange
   end
 
   class Submission<Base
-    def set_connection(data={})
+    def new_connection(data={})
       data[:access_token] = @access_token
       begin
         response = RestClient.post "#{@baseurl}/",
@@ -100,4 +100,4 @@ module ThreatExchange
 
   end
 end
-#binding.pry
+binding.pry
