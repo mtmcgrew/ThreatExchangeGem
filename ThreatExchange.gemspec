@@ -1,14 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ThreatExchange/version'
+require 'ThreatExchange/lib/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "ThreatExchange"
-  spec.version       = "0.0.3"
+  spec.version       = ThreatExchange::Version 
   spec.authors       = ["Maus Stearns"]
   spec.email         = ["maus@fb.com"]
   spec.summary       = %q{Gem abstraction for Facebooks ThreatExchange}
+  spec.description   = %q{Wrapper for rest-client wtih Facebooks Graph API}
   spec.homepage      = "https://threatexchange.fb.com/"
   spec.license       = "BSD"
 
@@ -19,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
+  spec.add_dependency "rest-client"
 end

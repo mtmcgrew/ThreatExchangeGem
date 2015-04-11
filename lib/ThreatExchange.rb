@@ -1,15 +1,17 @@
+require "ThreatExchange/version"
 require "rest-client"
 require "json"
 
 module ThreatExchange
-  class Base
-    def initialize(config={})
-      @access_token = config[:access_token]
+
+  class Client
+    attr_accessor :access_token
+    def initialize(access_token=nil)
+      @access_token = access_token
       @baseurl = 'https://graph.facebook.com'
     end
-  end
 
-  class Query<Base
+
     def malware_analyses(filter={})
       filter[:access_token] = @access_token
       begin 
@@ -65,9 +67,7 @@ module ThreatExchange
         e.response
       end
     end
-  end
 
-  class Submission<Base
     def new_connection(data={})
       data[:access_token] = @access_token
       begin
