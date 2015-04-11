@@ -31,18 +31,18 @@ TE = ThreatExchange::Query.new(config)
 To run a query you would first create a hash with the corespnding flags for example.
 ```ruby
 
-    query = { 
-    	threat_type: 'COMPROMISED_CREDENTIAL',
-	    type: 'EMAIL ADDRESS',
-	    fields: 'indicator,passwords',
-	    limit: 30
-    }
+ query = { 
+    threat_type: 'COMPROMISED_CREDENTIAL',
+	type: 'EMAIL ADDRESS',
+	fields: 'indicator,passwords',
+	limit: 30
+}
 ```
 
 Then we call the query 
 ```ruby
 
-    result = TE.threat_indicators(query)
+result = TE.threat_indicators(query)
 ```
 
 The result will return as a hash and then from there you can manipulate as you like.
