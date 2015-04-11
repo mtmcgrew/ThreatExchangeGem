@@ -5,7 +5,7 @@ require 'ThreatExchange/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "ThreatExchange"
-  spec.version       = ThreatExchange::VERSION
+  spec.version       = "0.0.3"
   spec.authors       = ["Maus Stearns"]
   spec.email         = ["maus@fb.com"]
   spec.summary       = %q{Gem abstraction for Facebooks ThreatExchange}

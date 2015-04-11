@@ -33,7 +33,7 @@ To run a query you would first create a hash with the corespnding flags for exam
 
  query = { 
     threat_type: 'COMPROMISED_CREDENTIAL',
-	type: 'EMAIL ADDRESS',
+	type: 'EMAIL_ADDRESS',
 	fields: 'indicator,passwords',
 	limit: 30
 }
@@ -45,8 +45,7 @@ Then we call the query
 result = TE.threat_indicators(query)
 ```
 
-The result will return as a hash and then from there you can manipulate as you like.
-To make life even easier I'd reccomend using the Hashie ruby gem https://github.com/intridea/hashie
+The result will return as an array of hashes and then from there you can manipulate as you like.
 
 Each Query method matches the existing ThreatExchange API and supports the same parameters. 
 
