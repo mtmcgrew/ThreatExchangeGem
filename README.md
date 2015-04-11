@@ -1,6 +1,6 @@
 # ThreatExchange
 
-TODO: Write a gem description
+A ruby library to interface with Facebooks ThreatExchange API
 
 ## Installation
 
@@ -18,7 +18,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The ThreatExchange library has two objects you can instanciate queries and
+submissions. To initialize either class you pass your access token in a hash into each object.
+
+config = { access_token: abc123 }
+TE = ThreatExchange::Query.new(config)
+
+To run a query you would first create a hash with the corespnding flags for example.
+query = {
+	threat_type: 'COMPROMISED_CREDENTIAL',
+	type: 'EMAIL ADDRESS',
+	fields: 'indicator,passwords',
+	limit: 30
+}
+
+Then we call the query 
+result = TE.threat_indicators(query)
+
+result will return as a hash and then from there you can manipulate as you like.
+
+Each Query method matches the existing ThreatExchange API and supports the same parameters. 
+
+
+
+TODO: Document / Test Submission
+
 
 ## Contributing
 

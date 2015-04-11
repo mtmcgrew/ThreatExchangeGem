@@ -100,4 +100,4 @@ module ThreatExchange
 
   end
 end
-binding.pry
+#binding.pry

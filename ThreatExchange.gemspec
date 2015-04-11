@@ -9,7 +9,6 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Maus Stearns"]
   spec.email         = ["maus@fb.com"]
   spec.summary       = %q{Gem abstraction for Facebooks ThreatExchange}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = "https://threatexchange.fb.com/"
   spec.license       = "BSD"
 
