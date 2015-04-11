@@ -11,7 +11,6 @@ module ThreatExchange
       @baseurl = 'https://graph.facebook.com'
     end
 
-
     def malware_analyses(filter={})
       filter[:access_token] = @access_token
       begin 
@@ -68,11 +67,20 @@ module ThreatExchange
       end
     end
 
-    def new_connection(data={})
+    def new_relation(data={})
       data[:access_token] = @access_token
       begin
-        response = RestClient.post "#{@baseurl}/",
+        response = RestClient.post "#{@baseurl}/#{data[:id]}/related/",
         { params: data }
+      rescue => e
+        e.response
+      end
+    end
+
+    def remove_relation(data={})
+      data[:access_token] = @access_token
+      begin
+        response = RestClient.delete "#{@baseurl}/#{data[:id]}/related/?related_id=#{data[:related_id]}"
       rescue => e
         e.response
       end
@@ -81,7 +89,7 @@ module ThreatExchange
     def new_ioc(data={})
       data[:access_token] = @access_token
       begin
-        response = RestClient.post "#{@baseurl}/",
+        response = RestClient.post "#{@baseurl}/threat_indicators/",
         { params: data }
       rescue => e
         e.response
@@ -91,7 +99,7 @@ module ThreatExchange
     def update_ioc(data={})
       data[:access_token] = @access_token
       begin
-        response = RestClient.post "#{@baseurl}/",
+        response = RestClient.post "#{@baseurl}/#{data[:id]}",
         { params: data }
       rescue => e
         e.response
